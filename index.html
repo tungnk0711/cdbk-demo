@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function binarySearch(intArray, data) {
+        let lowerBound = 0; // chi muc ban dau
+        let upperBound = intArray.length - 1; // chi muc cuoi
+        let midPoint = -1;
+        let index = -1;
+
+        while (lowerBound <= upperBound) {
+            midPoint = Math.floor(lowerBound + upperBound) / 2;
+
+            if (intArray[midPoint] === data) {
+                index = midPoint;
+                break;
+            } else {
+                if (intArray[midPoint] < data) {
+                    lowerBound = midPoint + 1;
+                } else {
+                    upperBound = midPoint - 1;
+                }
+            }
+        }
+        return index;
+    }
+    //let arr = [1, 7, 8, 9, 12, 13, 15, 17, 19, 20, 23, 28, 35];
+
+    let arr = [1, 4, 6, 8, 9, 18, 40, 50];
+    let number = 18;
+
+    let index = binarySearch(arr, number);
+
+    alert(arr[index]);
+
+</script>
+
+</body>
+</html>
